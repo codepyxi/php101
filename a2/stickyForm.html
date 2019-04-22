@@ -1,0 +1,74 @@
+<html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+
+    <body>
+
+        <?php include 'helper.php';?>
+
+        <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
+
+            Ticket #: <input type="hidden" name="ticket" value="<?php echo generateTicketNum() ?>"></br>
+
+            User Full Name: <input type="text" name="name" id="name"></br>
+            <?php if(empty($a_name) { ?>
+                <label type="hidden" for="name" style="color: red">Name is required</label>
+            <?php }?>
+
+            Current Date: <input type="hidden" name="currentDate" value="<?php echo generateCurrentDate()?>"></br>
+
+            Request Title: <input type="text" name="requestTitle" id="requestTitle"></br>
+            <?php if(empty($a_name) { ?>
+                <label type="hidden" for="requestTitle" style="color: red">Request Title is required</label>
+
+            Request: <input type="text" name="request" id="request"></br>
+            <label type="hidden" for="request" style="color: red">Request is required</label>
+
+            Severity:
+            <select name="severity" id="severity">
+                <option value = "1">1- Outage</option>
+                <option value = "2">2- Partial Outage</option>
+                <option value = "3">3- Workaround Available</option>
+                <option value = "4">4- Improvement</option>
+            </select>
+
+            <input type="submit">
+
+        </form>
+
+        <?php if( !empty($a_name) && !empty($a_requestTitle) && !empty($a_request)){ ?>
+
+            <table>
+                <thead>Ticket #: <?php echo $a_ticket ?></thead>
+
+                <tr>
+                    <td class="makeItBold">Full Name : </td>
+                    <td><?php echo $a_name?></td>
+                </tr>
+
+                <tr>
+                    <td class="makeItBold">Date : </td>
+                    <td><?php displayCurrentDate()?></td>
+                </tr>
+
+                <tr>
+                    <td class="makeItBold">Request Title : </td>
+                    <td><?php echo $a_requestTitle ?></td>
+                </tr>
+
+                <tr>
+                    <td class="makeItBold">Request Message : </td>
+                    <td><?php echo $a_request ?></td>
+                </tr>
+
+                <tr>
+                    <td class="makeItBold">Severity : </td>
+                    <td color="<?php echo $a_colour ?>"><?php echo $a_severity ?></td>
+                </tr>
+            </table>
+        <?php }?>
+
+    </body>
+</html>

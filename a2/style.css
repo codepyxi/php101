@@ -1,0 +1,27 @@
+/* === CSS RESET === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Merryweather', serif;
+    height: 100%;
+    color: #4C463A; /* colour: dark clay */
+}
+
+thead {
+    font-weight: 900;
+    font-size: 3vw;
+    line-height: 3.5vw;
+    text-transform: uppercase;
+}
+
+tr {
+    line-height: 20px;
+}
+
+.makeItBold {
+    font-weight: bolder;
+}
